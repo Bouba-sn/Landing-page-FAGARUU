@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAGARUU — Votre santé reproductive, à portée de main</title>
+    <title id="page-title">FAGARUU — Votre santé reproductive, à portée de main</title>
     <meta name="description"
         content="FAGARUU accompagne les jeunes et les adultes en Afrique avec des informations fiables, des conseils personnalisés et un accès simplifié aux services de santé reproductive." />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -408,19 +408,29 @@
 
                 <!-- Desktop Menu -->
                 <ul class="hidden lg:flex items-center gap-6 text-sm font-medium text-ink/70">
-                    <li><a href="#accueil" class="nav-link hover:text-brand-500 transition-colors">Accueil</a></li>
-                    <li><a href="#fonctionnalites"
+                    <li><a href="#accueil" data-i18n="nav_home" class="nav-link hover:text-brand-500 transition-colors">Accueil</a></li>
+                    <li><a href="#fonctionnalites" data-i18n="nav_features"
                             class="nav-link hover:text-brand-500 transition-colors">Fonctionnalités</a></li>
-                    <li><a href="#comment" class="nav-link hover:text-brand-500 transition-colors">Comment ça marche</a>
+                    <li><a href="#comment" data-i18n="nav_how" class="nav-link hover:text-brand-500 transition-colors">Comment ça marche</a>
                     </li>
-                    <li><a href="#ressources" class="nav-link hover:text-brand-500 transition-colors">Ressources</a>
+                    <li><a href="#ressources" data-i18n="nav_resources" class="nav-link hover:text-brand-500 transition-colors">Ressources</a>
                     </li>
-                    <li><a href="#faq" class="nav-link hover:text-brand-500 transition-colors">FAQ</a></li>
-                    <li><a href="#contact" class="nav-link hover:text-brand-500 transition-colors">Contact</a></li>
+                    <li><a href="#faq" data-i18n="nav_faq" class="nav-link hover:text-brand-500 transition-colors">FAQ</a></li>
+                    <li><a href="#contact" data-i18n="nav_contact" class="nav-link hover:text-brand-500 transition-colors">Contact</a></li>
                 </ul>
 
                 <!-- CTA + Dark Mode -->
                 <div class="hidden lg:flex items-center gap-3">
+                    <!-- Language Switcher -->
+                    <div class="glass rounded-full p-1 flex items-center text-xs font-bold border border-brand-200/50 shadow-sm" role="group" aria-label="Langue / Language">
+                        <button id="lang-btn-fr" onclick="setLanguage('fr')"
+                            class="px-2.5 py-1 rounded-full transition-all duration-200 bg-brand-500 text-white shadow-sm font-semibold text-xs"
+                            title="Français">FR</button>
+                        <button id="lang-btn-en" onclick="setLanguage('en')"
+                            class="px-2.5 py-1 rounded-full transition-all duration-200 text-ink/60 hover:text-brand-500 font-semibold text-xs"
+                            title="English">EN</button>
+                    </div>
+
                     <button onclick="toggleDark()"
                         class="w-9 h-9 rounded-full glass flex items-center justify-center text-ink/60 hover:text-brand-500 transition-colors"
                         title="Mode sombre">
@@ -456,19 +466,30 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="mobile-menu glass rounded-2xl mt-2 overflow-hidden">
                 <div class="px-5 py-4 flex flex-col gap-3">
-                    <a href="#accueil" onclick="toggleMobile()"
+                    <a href="#accueil" onclick="toggleMobile()" data-i18n="nav_home"
                         class="text-sm font-medium text-ink/70 hover:text-brand-500 transition-colors py-2 border-b border-brand-100/50">Accueil</a>
-                    <a href="#fonctionnalites" onclick="toggleMobile()"
+                    <a href="#fonctionnalites" onclick="toggleMobile()" data-i18n="nav_features"
                         class="text-sm font-medium text-ink/70 hover:text-brand-500 transition-colors py-2 border-b border-brand-100/50">Fonctionnalités</a>
-                    <a href="#comment" onclick="toggleMobile()"
+                    <a href="#comment" onclick="toggleMobile()" data-i18n="nav_how"
                         class="text-sm font-medium text-ink/70 hover:text-brand-500 transition-colors py-2 border-b border-brand-100/50">Comment
                         ça marche</a>
-                    <a href="#ressources" onclick="toggleMobile()"
+                    <a href="#ressources" onclick="toggleMobile()" data-i18n="nav_resources"
                         class="text-sm font-medium text-ink/70 hover:text-brand-500 transition-colors py-2 border-b border-brand-100/50">Ressources</a>
-                    <a href="#faq" onclick="toggleMobile()"
+                    <a href="#faq" onclick="toggleMobile()" data-i18n="nav_faq"
                         class="text-sm font-medium text-ink/70 hover:text-brand-500 transition-colors py-2 border-b border-brand-100/50">FAQ</a>
-                    <a href="#contact" onclick="toggleMobile()"
-                        class="text-sm font-medium text-ink/70 hover:text-brand-500 transition-colors py-2">Contact</a>
+                    <a href="#contact" onclick="toggleMobile()" data-i18n="nav_contact"
+                        class="text-sm font-medium text-ink/70 hover:text-brand-500 transition-colors py-2 border-b border-brand-100/50">Contact</a>
+                    
+                    <!-- Mobile Lang Switcher -->
+                    <div class="flex items-center justify-between pt-2">
+                        <span class="text-xs font-semibold text-ink/60" data-i18n="mobile_lang_label">Langue :</span>
+                        <div class="glass rounded-full p-1 flex items-center text-xs font-bold border border-brand-200/50">
+                            <button id="mobile-lang-btn-fr" onclick="setLanguage('fr')"
+                                class="px-3 py-1 rounded-full transition-all duration-200 bg-brand-500 text-white shadow-sm font-semibold text-xs">FR</button>
+                            <button id="mobile-lang-btn-en" onclick="setLanguage('en')"
+                                class="px-3 py-1 rounded-full transition-all duration-200 text-ink/60 hover:text-brand-500 font-semibold text-xs">EN</button>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -491,18 +512,18 @@
                     <div
                         class="reveal inline-flex items-center gap-2 bg-brand-50 text-brand-700 text-xs font-semibold px-4 py-2 rounded-full border border-brand-200">
                         <span class="w-2 h-2 bg-brand-500 rounded-full pulse-dot"></span>
-                        Disponible très prochainement en Afrique
+                        <span data-i18n="hero_badge">Disponible très prochainement en Afrique</span>
                     </div>
 
                     <!-- Headline -->
                     <div class="reveal delay-1 space-y-2">
-                        <h1
+                        <h1 data-i18n="hero_title_1"
                             class="font-display text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-ink">
                             Votre santé<br />
                             <em class="not-italic gradient-text">reproductive,</em>
                         </h1>
                         <div class="flex items-end gap-3">
-                            <h1
+                            <h1 data-i18n="hero_title_2"
                                 class="font-display text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-ink">
                                 à portée de</h1>
                             <div class="mb-2">
@@ -515,14 +536,14 @@
                                         stroke-linejoin="round" />
                                 </svg>
                             </div>
-                            <h1
+                            <h1 data-i18n="hero_title_3"
                                 class="font-display text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-ink">
                                 main.</h1>
                         </div>
                     </div>
 
                     <!-- Subtitle -->
-                    <p class="reveal delay-2 text-ink/60 text-lg leading-relaxed max-w-xl">
+                    <p data-i18n="hero_subtitle" class="reveal delay-2 text-ink/60 text-lg leading-relaxed max-w-xl">
                         FAGARUU vous accompagne avec des informations fiables, des conseils personnalisés, un suivi
                         intelligent et un accès simplifié aux services de santé reproductive.
                     </p>
@@ -531,7 +552,7 @@
                      <div class="reveal delay-3 flex flex-wrap gap-4">
                          <a href="#contact"
                              class="group bg-brand-500 hover:bg-brand-600 text-white font-semibold px-7 py-4 rounded-2xl transition-all duration-200 shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:-translate-y-0.5 flex items-center gap-2.5">
-                             Nous contacter
+                             <span data-i18n="hero_cta_contact">Nous contacter</span>
                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                  stroke-width="2.5" class="group-hover:translate-x-1 transition-transform">
                                  <path d="M5 12h14M12 5l7 7-7 7" />
@@ -539,7 +560,7 @@
                          </a>
                         <a href="#fonctionnalites"
                             class="group border-2 border-brand-200 hover:border-brand-500 text-ink hover:text-brand-600 font-semibold px-7 py-4 rounded-2xl transition-all duration-200 flex items-center gap-2.5">
-                            Voir les fonctionnalités
+                            <span data-i18n="hero_cta_features">Voir les fonctionnalités</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2.5" class="group-hover:translate-y-0.5 transition-transform">
                                 <path d="M12 5v14M5 12l7 7 7-7" />
@@ -563,8 +584,7 @@
                                 class="w-10 h-10 rounded-full bg-brand-500 border-2 border-white flex items-center justify-center text-xs font-bold text-white">
                                 F</div>
                         </div>
-                        <p class="text-sm text-ink/60"><span class="font-semibold text-ink">250+</span> futurs
-                            utilisateurs inscrits</p>
+                        <p class="text-sm text-ink/60"><span class="font-semibold text-ink">250+</span> <span data-i18n="hero_social_proof">futurs utilisateurs inscrits</span></p>
                     </div>
                 </div>
 
@@ -579,21 +599,21 @@
                                     <div class="absolute top-5 left-1/2 -translate-x-1/2 w-24 h-6 bg-ink rounded-full">
                                     </div>
                                     <div class="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-brand-400/40"></div>
-                                    <p class="text-white/70 text-xs font-medium">Bonjour, Amina 👋</p>
-                                    <h3 class="text-white font-bold text-xl mt-1">Votre tableau de bord</h3>
+                                    <p data-i18n="mockup_greeting" class="text-white/70 text-xs font-medium">Bonjour, Amina 👋</p>
+                                    <h3 data-i18n="mockup_dashboard_title" class="text-white font-bold text-xl mt-1">Votre tableau de bord</h3>
                                     <!-- Mini stats -->
                                     <div class="flex gap-3 mt-4">
                                         <div class="flex-1 bg-white/20 rounded-xl p-2.5">
-                                            <p class="text-white/70 text-[10px]">Prochain RDV</p>
-                                            <p class="text-white font-semibold text-xs mt-0.5">15 juin</p>
+                                            <p data-i18n="mockup_stat_rdv_title" class="text-white/70 text-[10px]">Prochain RDV</p>
+                                            <p data-i18n="mockup_stat_rdv_val" class="text-white font-semibold text-xs mt-0.5">15 juin</p>
                                         </div>
                                         <div class="flex-1 bg-white/20 rounded-xl p-2.5">
-                                            <p class="text-white/70 text-[10px]">Cycle J.</p>
-                                            <p class="text-white font-semibold text-xs mt-0.5">Jour 14</p>
+                                            <p data-i18n="mockup_stat_cycle_title" class="text-white/70 text-[10px]">Cycle J.</p>
+                                            <p data-i18n="mockup_stat_cycle_val" class="text-white font-semibold text-xs mt-0.5">Jour 14</p>
                                         </div>
                                         <div class="flex-1 bg-white/20 rounded-xl p-2.5">
-                                            <p class="text-white/70 text-[10px]">Rappels</p>
-                                            <p class="text-white font-semibold text-xs mt-0.5">3 actifs</p>
+                                            <p data-i18n="mockup_stat_reminders_title" class="text-white/70 text-[10px]">Rappels</p>
+                                            <p data-i18n="mockup_stat_reminders_val" class="text-white font-semibold text-xs mt-0.5">3 actifs</p>
                                         </div>
                                     </div>
                                 </div>
@@ -601,7 +621,7 @@
                                 <div class="p-4 space-y-3 bg-mist">
                                     <!-- Calendar strip -->
                                     <div class="bg-white rounded-2xl p-3 shadow-sm">
-                                        <p class="text-xs font-semibold text-ink/50 mb-2">CALENDRIER DE CYCLE</p>
+                                        <p data-i18n="mockup_cal_title" class="text-xs font-semibold text-ink/50 mb-2">CALENDRIER DE CYCLE</p>
                                         <div class="flex gap-1.5 justify-between">
                                             <div class="flex flex-col items-center gap-1"><span
                                                     class="text-[10px] text-ink/40">L</span>
@@ -658,10 +678,9 @@
                                                         fill="#00A86B" />
                                                 </svg>
                                             </div>
-                                            <p class="text-[10px] font-semibold text-brand-600">CONSEIL DU JOUR</p>
+                                            <p data-i18n="mockup_tip_title" class="text-[10px] font-semibold text-brand-600">CONSEIL DU JOUR</p>
                                         </div>
-                                        <p class="text-xs text-ink/70">Rester hydratée améliore votre bien-être general
-                                            lors de cette phase de votre cycle.</p>
+                                        <p data-i18n="mockup_tip_text" class="text-xs text-ink/70">Rester hydratée améliore votre bien-être general lors de cette phase de votre cycle.</p>
                                     </div>
                                     <!-- Chat bubble -->
                                     <div class="bg-white rounded-2xl p-3 shadow-sm flex items-start gap-2">
@@ -673,19 +692,18 @@
                                             </svg>
                                         </div>
                                         <div>
-                                            <p class="text-[10px] font-semibold text-brand-600 mb-0.5">Assistant FAGARUU
-                                            </p>
-                                            <p class="text-xs text-ink/60">Comment puis-je vous aider aujourd'hui ?</p>
+                                            <p data-i18n="mockup_assistant_title" class="text-[10px] font-semibold text-brand-600 mb-0.5">Assistant FAGARUU</p>
+                                            <p data-i18n="mockup_assistant_text" class="text-xs text-ink/60">Comment puis-je vous aider aujourd'hui ?</p>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Bottom Nav -->
                                 <div class="absolute bottom-0 left-0 right-0 z-20">
                                     <div class="glass border-t border-white/20 px-6 pt-3.5 pb-8 flex justify-between items-center rounded-b-[36px] relative shadow-[0_-8px_30px_-15px_rgba(0,0,0,0.1)]">
-                                        <div class="flex flex-col items-center gap-1 text-brand-500 cursor-pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="text-[10px] font-bold">Accueil</span></div>
-                                        <div class="flex flex-col items-center gap-1 text-ink/40 hover:text-brand-500 cursor-pointer transition-colors"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="text-[10px] font-semibold">Suivi</span></div>
-                                        <div class="flex flex-col items-center gap-1 text-ink/40 hover:text-brand-500 cursor-pointer transition-colors"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span class="text-[10px] font-semibold">Assistant</span></div>
-                                        <div class="flex flex-col items-center gap-1 text-ink/40 hover:text-brand-500 cursor-pointer transition-colors"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="text-[10px] font-semibold">RDV</span></div>
+                                        <div class="flex flex-col items-center gap-1 text-brand-500 cursor-pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span data-i18n="mockup_nav_home" class="text-[10px] font-bold">Accueil</span></div>
+                                        <div class="flex flex-col items-center gap-1 text-ink/40 hover:text-brand-500 cursor-pointer transition-colors"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span data-i18n="mockup_nav_track" class="text-[10px] font-semibold">Suivi</span></div>
+                                        <div class="flex flex-col items-center gap-1 text-ink/40 hover:text-brand-500 cursor-pointer transition-colors"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span data-i18n="mockup_nav_assist" class="text-[10px] font-semibold">Assistant</span></div>
+                                        <div class="flex flex-col items-center gap-1 text-ink/40 hover:text-brand-500 cursor-pointer transition-colors"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="mockup_nav_rdv" class="text-[10px] font-semibold">RDV</span></div>
                                         
                                         <!-- iOS Home Indicator -->
                                         <div class="absolute bottom-2.5 left-1/2 -translate-x-1/2 w-[110px] h-[4px] bg-ink/20 rounded-full"></div>
@@ -744,8 +762,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <p class="text-[10px] font-semibold text-ink">Rappel RDV</p>
-                                    <p class="text-[9px] text-ink/50">Dr. Koné — 15 juin</p>
+                                    <p data-i18n="notif_rdv_title" class="text-[10px] font-semibold text-ink">Rappel RDV</p>
+                                    <p data-i18n="notif_rdv_desc" class="text-[9px] text-ink/50">Dr. Koné — 15 juin</p>
                                 </div>
                             </div>
                         </div>
@@ -761,8 +779,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <p class="text-[10px] font-semibold text-ink">Données sécurisées</p>
-                                    <p class="text-[9px] text-ink/50">Chiffrement total</p>
+                                    <p data-i18n="badge_secure_title" class="text-[10px] font-semibold text-ink">Données sécurisées</p>
+                                    <p data-i18n="badge_secure_desc" class="text-[9px] text-ink/50">Chiffrement total</p>
                                 </div>
                             </div>
                         </div>
@@ -775,8 +793,7 @@
     <!-- ========== PARTENAIRES ========== -->
     <section class="py-14 border-y border-brand-100 bg-white overflow-hidden" id="ressources">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="reveal text-center text-xs font-semibold tracking-widest text-ink/40 uppercase mb-8">Ils nous font
-                confiance</p>
+            <p data-i18n="partners_title" class="reveal text-center text-xs font-semibold tracking-widest text-ink/40 uppercase mb-8">Ils nous font confiance</p>
             <div class="flex flex-wrap justify-center items-center gap-8 lg:gap-16">
                 <!-- Partner logos as SVG text placeholders -->
                 <div class="partner-logo reveal delay-1 cursor-default">
@@ -787,7 +804,7 @@
                                     d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z" />
                             </svg>
                         </div>
-                        <span class="font-bold text-sm text-ink/50 whitespace-nowrap">Ministère de la Santé</span>
+                        <span data-i18n="partner_ministry" class="font-bold text-sm text-ink/50 whitespace-nowrap">Ministère de la Santé</span>
                     </div>
                 </div>
                 <div class="partner-logo reveal delay-2 cursor-default">
@@ -799,7 +816,7 @@
                                     stroke-linecap="round" />
                             </svg>
                         </div>
-                        <span class="font-bold text-sm text-ink/50 whitespace-nowrap">ONG Santé Jeunes</span>
+                        <span data-i18n="partner_ngo" class="font-bold text-sm text-ink/50 whitespace-nowrap">ONG Santé Jeunes</span>
                     </div>
                 </div>
                 <div class="partner-logo reveal delay-3 cursor-default">
@@ -810,8 +827,7 @@
                                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" />
                             </svg>
                         </div>
-                        <span class="font-bold text-sm text-ink/50 whitespace-nowrap">Centres de Santé
-                            Partenaires</span>
+                        <span data-i18n="partner_centers" class="font-bold text-sm text-ink/50 whitespace-nowrap">Centres de Santé Partenaires</span>
                     </div>
                 </div>
                 <div class="partner-logo reveal delay-4 cursor-default">
@@ -824,7 +840,7 @@
                                     stroke-width="1.5" fill="#EDE9FE" />
                             </svg>
                         </div>
-                        <span class="font-bold text-sm text-ink/50 whitespace-nowrap">Universités</span>
+                        <span data-i18n="partner_univ" class="font-bold text-sm text-ink/50 whitespace-nowrap">Universités</span>
                     </div>
                 </div>
                 <div class="partner-logo reveal delay-5 cursor-default">
@@ -836,7 +852,7 @@
                                 <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
                             </svg>
                         </div>
-                        <span class="font-bold text-sm text-ink/50 whitespace-nowrap">Associations de Jeunesse</span>
+                        <span data-i18n="partner_youth" class="font-bold text-sm text-ink/50 whitespace-nowrap">Associations de Jeunesse</span>
                     </div>
                 </div>
             </div>
@@ -848,14 +864,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Header -->
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <p class="reveal text-xs font-semibold tracking-widest text-brand-500 uppercase mb-3">Plateforme
-                    complète</p>
-                <h2 class="reveal delay-1 font-display text-4xl sm:text-5xl text-ink leading-tight">
+                <p data-i18n="feat_tagline" class="reveal text-xs font-semibold tracking-widest text-brand-500 uppercase mb-3">Plateforme complète</p>
+                <h2 data-i18n="feat_title" class="reveal delay-1 font-display text-4xl sm:text-5xl text-ink leading-tight">
                     Tout ce dont vous avez besoin<br />
                     <em class="not-italic gradient-text">pour votre santé reproductive</em>
                 </h2>
-                <p class="reveal delay-2 text-ink/60 mt-4 text-lg">Six outils essentiels, pensés pour l'Afrique, conçus
-                    pour vous.</p>
+                <p data-i18n="feat_subtitle" class="reveal delay-2 text-ink/60 mt-4 text-lg">Six outils essentiels, pensés pour l'Afrique, conçus pour vous.</p>
             </div>
 
             <!-- Feature grid -->
@@ -872,10 +886,9 @@
                             <circle cx="16" cy="15" r="1.5" fill="#00A86B" opacity="0.3" />
                         </svg>
                     </div>
-                    <h3 class="font-bold text-lg text-ink mb-2">Suivi personnalisé</h3>
-                    <p class="text-ink/60 text-sm leading-relaxed">Suivez votre cycle, vos rendez-vous médicaux et vos
-                        objectifs santé depuis une seule interface claire.</p>
-                    <button onclick="openFeatureModal(0)" class="mt-5 inline-flex items-center gap-1.5 text-brand-500 text-sm font-semibold hover:text-brand-600 transition-colors">En savoir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                    <h3 data-i18n="feat_1_title" class="font-bold text-lg text-ink mb-2">Suivi personnalisé</h3>
+                    <p data-i18n="feat_1_desc" class="text-ink/60 text-sm leading-relaxed">Suivez votre cycle, vos rendez-vous médicaux et vos objectifs santé depuis une seule interface claire.</p>
+                    <button onclick="openFeatureModal(0)" class="mt-5 inline-flex items-center gap-1.5 text-brand-500 text-sm font-semibold hover:text-brand-600 transition-colors"><span data-i18n="feat_btn_more">En savoir plus</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
                 </div>
 
                 <!-- Card 2 -->
@@ -889,10 +902,9 @@
                             <path d="M9 8h6" stroke="#00A86B" stroke-width="2" stroke-linecap="round" />
                         </svg>
                     </div>
-                    <h3 class="font-bold text-lg text-ink mb-2">Conseils fiables</h3>
-                    <p class="text-ink/60 text-sm leading-relaxed">Accédez à des contenus validés par des professionnels
-                        de santé, adaptés au contexte africain.</p>
-                    <button onclick="openFeatureModal(1)" class="mt-5 inline-flex items-center gap-1.5 text-brand-500 text-sm font-semibold hover:text-brand-600 transition-colors">En savoir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                    <h3 data-i18n="feat_2_title" class="font-bold text-lg text-ink mb-2">Conseils fiables</h3>
+                    <p data-i18n="feat_2_desc" class="text-ink/60 text-sm leading-relaxed">Accédez à des contenus validés par des professionnels de santé, adaptés au contexte africain.</p>
+                    <button onclick="openFeatureModal(1)" class="mt-5 inline-flex items-center gap-1.5 text-brand-500 text-sm font-semibold hover:text-brand-600 transition-colors"><span data-i18n="feat_btn_more">En savoir plus</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
                 </div>
 
                 <!-- Card 3 — Highlighted -->
@@ -905,10 +917,9 @@
                                 fill="white" />
                         </svg>
                     </div>
-                    <h3 class="font-bold text-lg text-white mb-2">Assistant intelligent</h3>
-                    <p class="text-white/80 text-sm leading-relaxed">Posez vos questions et obtenez des réponses
-                        rapides, précises et confidentielles 24h/24.</p>
-                    <button onclick="openFeatureModal(2)" class="mt-5 inline-flex items-center gap-1.5 text-white text-sm font-semibold hover:text-white/80 transition-colors">En savoir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                    <h3 data-i18n="feat_3_title" class="font-bold text-lg text-white mb-2">Assistant intelligent</h3>
+                    <p data-i18n="feat_3_desc" class="text-white/80 text-sm leading-relaxed">Posez vos questions et obtenez des réponses rapides, précises et confidentielles 24h/24.</p>
+                    <button onclick="openFeatureModal(2)" class="mt-5 inline-flex items-center gap-1.5 text-white text-sm font-semibold hover:text-white/80 transition-colors"><span data-i18n="feat_btn_more">En savoir plus</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
                 </div>
 
                 <!-- Card 4 -->
@@ -921,10 +932,9 @@
                                 stroke="#00A86B" stroke-width="2" stroke-linecap="round" />
                         </svg>
                     </div>
-                    <h3 class="font-bold text-lg text-ink mb-2">Prise de rendez-vous</h3>
-                    <p class="text-ink/60 text-sm leading-relaxed">Trouvez et contactez facilement des professionnels de
-                        santé près de chez vous en quelques clics.</p>
-                    <button onclick="openFeatureModal(3)" class="mt-5 inline-flex items-center gap-1.5 text-brand-500 text-sm font-semibold hover:text-brand-600 transition-colors">En savoir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                    <h3 data-i18n="feat_4_title" class="font-bold text-lg text-ink mb-2">Prise de rendez-vous</h3>
+                    <p data-i18n="feat_4_desc" class="text-ink/60 text-sm leading-relaxed">Trouvez et contactez facilement des professionnels de santé près de chez vous en quelques clics.</p>
+                    <button onclick="openFeatureModal(3)" class="mt-5 inline-flex items-center gap-1.5 text-brand-500 text-sm font-semibold hover:text-brand-600 transition-colors"><span data-i18n="feat_btn_more">En savoir plus</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
                 </div>
 
                 <!-- Card 5 -->
@@ -938,10 +948,9 @@
                                 stroke-linecap="round" />
                         </svg>
                     </div>
-                    <h3 class="font-bold text-lg text-ink mb-2">Alertes et rappels</h3>
-                    <p class="text-ink/60 text-sm leading-relaxed">Ne manquez plus aucun rendez-vous ni traitement grâce
-                        à des notifications intelligentes et personnalisables.</p>
-                    <button onclick="openFeatureModal(4)" class="mt-5 inline-flex items-center gap-1.5 text-brand-500 text-sm font-semibold hover:text-brand-600 transition-colors">En savoir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                    <h3 data-i18n="feat_5_title" class="font-bold text-lg text-ink mb-2">Alertes et rappels</h3>
+                    <p data-i18n="feat_5_desc" class="text-ink/60 text-sm leading-relaxed">Ne manquez plus aucun rendez-vous ni traitement grâce à des notifications intelligentes et personnalisables.</p>
+                    <button onclick="openFeatureModal(4)" class="mt-5 inline-flex items-center gap-1.5 text-brand-500 text-sm font-semibold hover:text-brand-600 transition-colors"><span data-i18n="feat_btn_more">En savoir plus</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
                 </div>
 
                 <!-- Card 6 -->
@@ -955,10 +964,9 @@
                             <circle cx="12" cy="16" r="1.5" fill="#00A86B" />
                         </svg>
                     </div>
-                    <h3 class="font-bold text-lg text-ink mb-2">Confidentialité totale</h3>
-                    <p class="text-ink/60 text-sm leading-relaxed">Vos données de santé restent privées, protégées par
-                        un chiffrement de bout en bout.</p>
-                    <button onclick="openFeatureModal(5)" class="mt-5 inline-flex items-center gap-1.5 text-brand-500 text-sm font-semibold hover:text-brand-600 transition-colors">En savoir plus <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                    <h3 data-i18n="feat_6_title" class="font-bold text-lg text-ink mb-2">Confidentialité totale</h3>
+                    <p data-i18n="feat_6_desc" class="text-ink/60 text-sm leading-relaxed">Vos données de santé restent privées, protégées par un chiffrement de bout en bout.</p>
+                    <button onclick="openFeatureModal(5)" class="mt-5 inline-flex items-center gap-1.5 text-brand-500 text-sm font-semibold hover:text-brand-600 transition-colors"><span data-i18n="feat_btn_more">En savoir plus</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
                 </div>
             </div>
         </div>
@@ -968,9 +976,8 @@
     <section id="comment" class="py-24 section-alt overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <p class="reveal text-xs font-semibold tracking-widest text-brand-500 uppercase mb-3">Simple et rapide
-                </p>
-                <h2 class="reveal delay-1 font-display text-4xl sm:text-5xl text-ink leading-tight">
+                <p data-i18n="how_tagline" class="reveal text-xs font-semibold tracking-widest text-brand-500 uppercase mb-3">Simple et rapide</p>
+                <h2 data-i18n="how_title" class="reveal delay-1 font-display text-4xl sm:text-5xl text-ink leading-tight">
                     Commencer avec FAGARUU<br />
                     <em class="not-italic gradient-text">en 3 étapes</em>
                 </h2>
@@ -993,9 +1000,8 @@
                         </svg>
                         <span class="text-brand-500 font-display font-bold text-lg">01</span>
                     </div>
-                    <h3 class="font-bold text-xl text-ink mb-3">Créer un compte</h3>
-                    <p class="text-ink/60 text-sm leading-relaxed max-w-xs mx-auto">Inscrivez-vous gratuitement en moins
-                        de 2 minutes. Aucune carte bancaire requise.</p>
+                    <h3 data-i18n="how_1_title" class="font-bold text-xl text-ink mb-3">Créer un compte</h3>
+                    <p data-i18n="how_1_desc" class="text-ink/60 text-sm leading-relaxed max-w-xs mx-auto">Inscrivez-vous gratuitement en moins de 2 minutes. Aucune carte bancaire requise.</p>
                 </div>
 
                 <!-- Step 2 -->
@@ -1010,9 +1016,8 @@
                         </svg>
                         <span class="text-white font-display font-bold text-lg">02</span>
                     </div>
-                    <h3 class="font-bold text-xl text-ink mb-3">Compléter votre profil santé</h3>
-                    <p class="text-ink/60 text-sm leading-relaxed max-w-xs mx-auto">Renseignez vos informations de santé
-                        pour un accompagnement vraiment personnalisé.</p>
+                    <h3 data-i18n="how_2_title" class="font-bold text-xl text-ink mb-3">Compléter votre profil santé</h3>
+                    <p data-i18n="how_2_desc" class="text-ink/60 text-sm leading-relaxed max-w-xs mx-auto">Renseignez vos informations de santé pour un accompagnement vraiment personnalisé.</p>
                 </div>
 
                 <!-- Step 3 -->
@@ -1026,14 +1031,13 @@
                         </svg>
                         <span class="text-brand-500 font-display font-bold text-lg">03</span>
                     </div>
-                    <h3 class="font-bold text-xl text-ink mb-3">Recevoir votre accompagnement</h3>
-                    <p class="text-ink/60 text-sm leading-relaxed max-w-xs mx-auto">Profitez de conseils, rappels et
-                        ressources adaptés à votre profil et vos besoins.</p>
+                    <h3 data-i18n="how_3_title" class="font-bold text-xl text-ink mb-3">Recevoir votre accompagnement</h3>
+                    <p data-i18n="how_3_desc" class="text-ink/60 text-sm leading-relaxed max-w-xs mx-auto">Profitez de conseils, rappels et ressources adaptés à votre profil et vos besoins.</p>
                 </div>
             </div>
 
             <div class="reveal text-center mt-12">
-                <a href="#contact"
+                <a href="#contact" data-i18n="how_cta"
                     class="bg-brand-500 hover:bg-brand-600 text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-200 shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:-translate-y-0.5 inline-block">
                     Nous contacter
                 </a>
@@ -1055,17 +1059,16 @@
                     <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
                     </div>
-                    <h3 class="font-display text-3xl text-white mb-4">La confiance avant tout</h3>
-                    <p class="text-white/80 leading-relaxed text-sm">FAGARUU est développé en collaboration avec des experts médicaux pour garantir des informations vérifiées, objectives et bienveillantes. Votre santé mérite ce qu'il y a de plus sûr.</p>
+                    <h3 data-i18n="why_box_title" class="font-display text-3xl text-white mb-4">La confiance avant tout</h3>
+                    <p data-i18n="why_box_desc" class="text-white/80 leading-relaxed text-sm">FAGARUU est développé en collaboration avec des experts médicaux pour garantir des informations vérifiées, objectives et bienveillantes. Votre santé mérite ce qu'il y a de plus sûr.</p>
                 </div>
             </div>
         </div>
       <!-- Right: Reasons -->
                 <div class="space-y-6">
                     <div>
-                        <p class="reveal text-xs font-semibold tracking-widest text-brand-500 uppercase mb-3">Notre
-                            différence</p>
-                        <h2 class="reveal delay-1 font-display text-4xl sm:text-5xl text-ink leading-tight">
+                        <p data-i18n="why_tagline" class="reveal text-xs font-semibold tracking-widest text-brand-500 uppercase mb-3">Notre différence</p>
+                        <h2 data-i18n="why_title" class="reveal delay-1 font-display text-4xl sm:text-5xl text-ink leading-tight">
                             Pourquoi choisir<br />
                             <em class="not-italic gradient-text">FAGARUU ?</em>
                         </h2>
@@ -1084,9 +1087,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="font-bold text-ink mb-1">Éducation fiable</h4>
-                                <p class="text-ink/60 text-sm leading-relaxed">Des informations basées sur des sources
-                                    médicales reconnues et vérifiées par des professionnels de santé.</p>
+                                <h4 data-i18n="why_1_title" class="font-bold text-ink mb-1">Éducation fiable</h4>
+                                <p data-i18n="why_1_desc" class="text-ink/60 text-sm leading-relaxed">Des informations basées sur des sources médicales reconnues et vérifiées par des professionnels de santé.</p>
                             </div>
                         </div>
 
@@ -1103,9 +1105,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="font-bold text-ink mb-1">Confidentialité garantie</h4>
-                                <p class="text-ink/60 text-sm leading-relaxed">Vos données de santé sont protégées par
-                                    un chiffrement de bout en bout. Personne d'autre ne peut y accéder.</p>
+                                <h4 data-i18n="why_2_title" class="font-bold text-ink mb-1">Confidentialité garantie</h4>
+                                <p data-i18n="why_2_desc" class="text-ink/60 text-sm leading-relaxed">Vos données de santé sont protégées par un chiffrement de bout en bout. Personne d'autre ne peut y accéder.</p>
                             </div>
                         </div>
 
@@ -1122,9 +1123,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="font-bold text-ink mb-1">Accessibilité</h4>
-                                <p class="text-ink/60 text-sm leading-relaxed">Disponible partout, à tout moment, même
-                                    avec une connexion limitée. Conçu pour l'Afrique.</p>
+                                <h4 data-i18n="why_3_title" class="font-bold text-ink mb-1">Accessibilité</h4>
+                                <p data-i18n="why_3_desc" class="text-ink/60 text-sm leading-relaxed">Disponible partout, à tout moment, même avec une connexion limitée. Conçu pour l'Afrique.</p>
                             </div>
                         </div>
 
@@ -1140,9 +1140,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="font-bold text-ink mb-1">Accompagnement personnalisé</h4>
-                                <p class="text-ink/60 text-sm leading-relaxed">Des recommandations adaptées à chaque
-                                    utilisateur selon son profil, son âge et ses besoins spécifiques.</p>
+                                <h4 data-i18n="why_4_title" class="font-bold text-ink mb-1">Accompagnement personnalisé</h4>
+                                <p data-i18n="why_4_desc" class="text-ink/60 text-sm leading-relaxed">Des recommandations adaptées à chaque utilisateur selon son profil, son âge et ses besoins spécifiques.</p>
                             </div>
                         </div>
                     </div>
@@ -1155,11 +1154,9 @@
     <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
-                <p class="reveal text-xs font-semibold tracking-widest text-brand-500 uppercase mb-3">Communauté</p>
-                <h2 class="reveal delay-1 font-display text-4xl sm:text-5xl text-ink leading-tight">Ce que disent nos
-                    utilisateurs</h2>
-                <p class="reveal delay-2 text-ink/60 mt-4">L'application arrive bientôt. Partagez déjà vos attentes et
-                    votre enthousiasme !</p>
+                <p data-i18n="testi_tagline" class="reveal text-xs font-semibold tracking-widest text-brand-500 uppercase mb-3">Communauté</p>
+                <h2 data-i18n="testi_title" class="reveal delay-1 font-display text-4xl sm:text-5xl text-ink leading-tight">Ce que disent nos utilisateurs</h2>
+                <p data-i18n="testi_subtitle" class="reveal delay-2 text-ink/60 mt-4">L'application arrive bientôt. Partagez déjà vos attentes et votre enthousiasme !</p>
             </div>
 
             <!-- Testimonial cards -->
@@ -1188,16 +1185,14 @@
                                 d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z" />
                         </svg>
                     </div>
-                    <p class="text-ink/70 text-sm leading-relaxed mb-5">"Une application comme FAGARUU était vraiment
-                        nécessaire en Afrique. J'attends avec impatience de pouvoir suivre mon cycle et accéder à des
-                        conseils fiables."</p>
+                    <p data-i18n="testi_quote_1" class="text-ink/70 text-sm leading-relaxed mb-5">"Une application comme FAGARUU était vraiment nécessaire en Afrique. J'attends avec impatience de pouvoir suivre mon cycle et accéder à des conseils fiables."</p>
                     <div class="flex items-center gap-3">
                         <div
                             class="w-9 h-9 rounded-full bg-brand-200 flex items-center justify-center font-bold text-brand-700 text-sm">
                             A</div>
                         <div>
                             <p class="font-semibold text-sm text-ink">Amina D.</p>
-                            <p class="text-xs text-ink/50">Dakar, Sénégal</p>
+                            <p data-i18n="testi_city_1" class="text-xs text-ink/50">Dakar, Sénégal</p>
                         </div>
                     </div>
                 </div>
@@ -1224,16 +1219,14 @@
                                 d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z" />
                         </svg>
                     </div>
-                    <p class="text-ink/70 text-sm leading-relaxed mb-5">"La confidentialité est primordiale sur ce
-                        sujet. Savoir que mes données seront sécurisées me rassure vraiment. Je suis déjà inscrit pour
-                        la bêta."</p>
+                    <p data-i18n="testi_quote_2" class="text-ink/70 text-sm leading-relaxed mb-5">"La confidentialité est primordiale sur ce sujet. Savoir que mes données seront sécurisées me rassure vraiment. Je suis déjà inscrit pour la bêta."</p>
                     <div class="flex items-center gap-3">
                         <div
                             class="w-9 h-9 rounded-full bg-brand-300 flex items-center justify-center font-bold text-brand-800 text-sm">
                             K</div>
                         <div>
                             <p class="font-semibold text-sm text-ink">Kofi M.</p>
-                            <p class="text-xs text-ink/50">Abidjan, Côte d'Ivoire</p>
+                            <p data-i18n="testi_city_2" class="text-xs text-ink/50">Abidjan, Côte d'Ivoire</p>
                         </div>
                     </div>
                 </div>
@@ -1262,14 +1255,14 @@
                                 d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z" />
                         </svg>
                     </div>
-                    <p class="text-ink/70 text-sm leading-relaxed mb-5">"FAGARUU va révolutionner l'accès aux soins reproductifs en Afrique. Une initiative bienvenue qui va sauver beaucoup de vies."</p>
+                    <p data-i18n="testi_quote_3" class="text-ink/70 text-sm leading-relaxed mb-5">"FAGARUU va révolutionner l'accès aux soins reproductifs en Afrique. Une initiative bienvenue qui va sauver beaucoup de vies."</p>
                     <div class="flex items-center gap-3">
                         <div
                             class="w-9 h-9 rounded-full bg-brand-400 flex items-center justify-center font-bold text-white text-sm">
                             M</div>
                         <div>
                             <p class="font-semibold text-sm text-ink">Marie K.</p>
-                            <p class="text-xs text-ink/50">Bamako, Mali</p>
+                            <p data-i18n="testi_city_3" class="text-xs text-ink/50">Bamako, Mali</p>
                         </div>
                     </div>
                 </div>
@@ -1278,29 +1271,29 @@
 
             <!-- Testimonial form -->
             <div class="reveal max-w-2xl mx-auto bg-mist border-2 border-brand-100 rounded-3xl p-8">
-                <h3 class="font-bold text-xl text-ink mb-1">Partagez votre enthousiasme</h3>
-                <p class="text-ink/60 text-sm mb-6">Votre témoignage sera affiché sur cette page.</p>
+                <h3 data-i18n="testi_form_title" class="font-bold text-xl text-ink mb-1">Partagez votre enthousiasme</h3>
+                <p data-i18n="testi_form_subtitle" class="text-ink/60 text-sm mb-6">Votre témoignage sera affiché sur cette page.</p>
                 <div class="space-y-4">
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-xs font-semibold text-ink/60 mb-1.5">Prénom</label>
-                            <input id="t-prenom" type="text" placeholder="Votre prénom"
+                            <label data-i18n="testi_form_fname" class="block text-xs font-semibold text-ink/60 mb-1.5">Prénom</label>
+                            <input id="t-prenom" type="text" placeholder="Votre prénom" data-i18n-placeholder="testi_form_fname_ph"
                                 class="w-full bg-white border border-brand-200 rounded-xl px-4 py-3 text-sm text-ink placeholder-ink/30 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/10 transition-all" />
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold text-ink/60 mb-1.5">Ville / Pays</label>
-                            <input id="t-ville" type="text" placeholder="Ex: Dakar, Sénégal"
+                            <label data-i18n="testi_form_city" class="block text-xs font-semibold text-ink/60 mb-1.5">Ville / Pays</label>
+                            <input id="t-ville" type="text" placeholder="Ex: Dakar, Sénégal" data-i18n-placeholder="testi_form_city_ph"
                                 class="w-full bg-white border border-brand-200 rounded-xl px-4 py-3 text-sm text-ink placeholder-ink/30 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/10 transition-all" />
                         </div>
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-ink/60 mb-1.5">Votre message</label>
-                        <textarea id="t-message" rows="3" placeholder="Partagez vos attentes sur FAGARUU…"
+                        <label data-i18n="testi_form_msg" class="block text-xs font-semibold text-ink/60 mb-1.5">Votre message</label>
+                        <textarea id="t-message" rows="3" placeholder="Partagez vos attentes sur FAGARUU…" data-i18n-placeholder="testi_form_msg_ph"
                             class="w-full bg-white border border-brand-200 rounded-xl px-4 py-3 text-sm text-ink placeholder-ink/30 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/10 transition-all resize-none"></textarea>
                     </div>
                     <!-- Stars -->
                     <div>
-                        <label class="block text-xs font-semibold text-ink/60 mb-2">Note</label>
+                        <label data-i18n="testi_form_rating" class="block text-xs font-semibold text-ink/60 mb-2">Note</label>
                         <div id="star-rating" class="flex gap-1">
                             <button onclick="setRating(1)"
                                 class="star-btn w-7 h-7 text-ink/20 hover:text-yellow-400 transition-colors"
@@ -1334,12 +1327,11 @@
                                 </svg></button>
                         </div>
                     </div>
-                    <button onclick="submitTestimonial()"
+                    <button onclick="submitTestimonial()" data-i18n="testi_form_submit"
                         class="w-full bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3.5 rounded-xl transition-all duration-200 shadow-md shadow-brand-500/20 hover:shadow-brand-500/30">
                         Publier mon témoignage
                     </button>
-                    <p id="t-success" class="hidden text-center text-brand-600 text-sm font-medium">✓ Merci ! Votre
-                        témoignage a été ajouté.</p>
+                    <p id="t-success" data-i18n="testi_form_success" class="hidden text-center text-brand-600 text-sm font-medium">✓ Merci ! Votre témoignage a été ajouté.</p>
                 </div>
             </div>
         </div>
@@ -1349,92 +1341,73 @@
     <section id="faq" class="py-24 section-alt">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-14">
-                <p class="reveal text-xs font-semibold tracking-widest text-brand-500 uppercase mb-3">Questions
-                    fréquentes</p>
-                <h2 class="reveal delay-1 font-display text-4xl sm:text-5xl text-ink leading-tight">Tout ce que vous
-                    voulez savoir</h2>
+                <p data-i18n="faq_tagline" class="reveal text-xs font-semibold tracking-widest text-brand-500 uppercase mb-3">Questions fréquentes</p>
+                <h2 data-i18n="faq_title" class="reveal delay-1 font-display text-4xl sm:text-5xl text-ink leading-tight">Tout ce que vous voulez savoir</h2>
             </div>
             <div class="space-y-4" id="faq-list">
                 <div class="faq-item reveal bg-white border border-brand-100 rounded-2xl overflow-hidden">
                     <button onclick="toggleFaq(this)"
                         class="w-full px-6 py-5 flex items-center justify-between text-left gap-4">
-                        <span class="font-semibold text-ink text-sm sm:text-base">Qu'est-ce que FAGARUU ?</span>
+                        <span data-i18n="faq_q1" class="font-semibold text-ink text-sm sm:text-base">Qu'est-ce que FAGARUU ?</span>
                         <svg class="faq-icon shrink-0 text-brand-500" width="20" height="20" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2.5">
                             <path d="M12 5v14M5 12h14" />
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <p class="px-6 pb-5 text-ink/60 text-sm leading-relaxed">FAGARUU est une plateforme numérique de
-                            santé reproductive destinée à informer, accompagner et orienter les jeunes et les adultes en
-                            Afrique. Elle offre un suivi personnalisé, des conseils médicaux validés et un accès
-                            simplifié aux professionnels de santé.</p>
+                        <p data-i18n="faq_a1" class="px-6 pb-5 text-ink/60 text-sm leading-relaxed">FAGARUU est une plateforme numérique de santé reproductive destinée à informer, accompagner et orienter les jeunes et les adultes en Afrique. Elle offre un suivi personnalisé, des conseils médicaux validés et un accès simplifié aux professionnels de santé.</p>
                     </div>
                 </div>
                 <div class="faq-item reveal delay-1 bg-white border border-brand-100 rounded-2xl overflow-hidden">
                     <button onclick="toggleFaq(this)"
                         class="w-full px-6 py-5 flex items-center justify-between text-left gap-4">
-                        <span class="font-semibold text-ink text-sm sm:text-base">Mes données sont-elles sécurisées
-                            ?</span>
+                        <span data-i18n="faq_q2" class="font-semibold text-ink text-sm sm:text-base">Mes données sont-elles sécurisées ?</span>
                         <svg class="faq-icon shrink-0 text-brand-500" width="20" height="20" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2.5">
                             <path d="M12 5v14M5 12h14" />
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <p class="px-6 pb-5 text-ink/60 text-sm leading-relaxed">Oui, absolument. Toutes les données
-                            personnelles et médicales sont chiffrées de bout en bout et traitées dans le strict respect
-                            de la confidentialité. Personne, y compris nos équipes, ne peut accéder à vos informations
-                            de santé sans votre consentement explicite.</p>
+                        <p data-i18n="faq_a2" class="px-6 pb-5 text-ink/60 text-sm leading-relaxed">Oui, absolument. Toutes les données personnelles et médicales sont chiffrées de bout en bout et traitées dans le strict respect de la confidentialité. Personne, y compris nos équipes, ne peut accéder à vos informations de santé sans votre consentement explicite.</p>
                     </div>
                 </div>
                 <div class="faq-item reveal delay-2 bg-white border border-brand-100 rounded-2xl overflow-hidden">
                     <button onclick="toggleFaq(this)"
                         class="w-full px-6 py-5 flex items-center justify-between text-left gap-4">
-                        <span class="font-semibold text-ink text-sm sm:text-base">L'application est-elle gratuite
-                            ?</span>
+                        <span data-i18n="faq_q3" class="font-semibold text-ink text-sm sm:text-base">L'application est-elle gratuite ?</span>
                         <svg class="faq-icon shrink-0 text-brand-500" width="20" height="20" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2.5">
                             <path d="M12 5v14M5 12h14" />
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <p class="px-6 pb-5 text-ink/60 text-sm leading-relaxed">La première version de FAGARUU sera
-                            entièrement gratuite avec toutes les fonctionnalités essentielles incluses : suivi de cycle,
-                            conseils santé, assistant intelligent et alertes. Des options premium pourront être
-                            proposées ultérieurement.</p>
+                        <p data-i18n="faq_a3" class="px-6 pb-5 text-ink/60 text-sm leading-relaxed">La première version de FAGARUU sera entièrement gratuite avec toutes les fonctionnalités essentielles incluses : suivi de cycle, conseils santé, assistant intelligent et alertes. Des options premium pourront être proposées ultérieurement.</p>
                     </div>
                 </div>
                 <div class="faq-item reveal delay-3 bg-white border border-brand-100 rounded-2xl overflow-hidden">
                     <button onclick="toggleFaq(this)"
                         class="w-full px-6 py-5 flex items-center justify-between text-left gap-4">
-                        <span class="font-semibold text-ink text-sm sm:text-base">Comment contacter un professionnel de
-                            santé ?</span>
+                        <span data-i18n="faq_q4" class="font-semibold text-ink text-sm sm:text-base">Comment contacter un professionnel de santé ?</span>
                         <svg class="faq-icon shrink-0 text-brand-500" width="20" height="20" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2.5">
                             <path d="M12 5v14M5 12h14" />
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <p class="px-6 pb-5 text-ink/60 text-sm leading-relaxed">Depuis l'application, accédez au module
-                            de prise de rendez-vous pour trouver et contacter des professionnels de santé référencés
-                            près de chez vous. Vous pouvez filtrer par spécialité, disponibilité et localisation.</p>
+                        <p data-i18n="faq_a4" class="px-6 pb-5 text-ink/60 text-sm leading-relaxed">Depuis l'application, accédez au module de prise de rendez-vous pour trouver et contacter des professionnels de santé référencés près de chez vous. Vous pouvez filtrer par spécialité, disponibilité et localisation.</p>
                     </div>
                 </div>
                 <div class="faq-item reveal delay-4 bg-white border border-brand-100 rounded-2xl overflow-hidden">
                     <button onclick="toggleFaq(this)"
                         class="w-full px-6 py-5 flex items-center justify-between text-left gap-4">
-                        <span class="font-semibold text-ink text-sm sm:text-base">Dans quels pays FAGARUU sera-t-il
-                            disponible ?</span>
+                        <span data-i18n="faq_q5" class="font-semibold text-ink text-sm sm:text-base">Dans quels pays FAGARUU sera-t-il disponible ?</span>
                         <svg class="faq-icon shrink-0 text-brand-500" width="20" height="20" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2.5">
                             <path d="M12 5v14M5 12h14" />
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <p class="px-6 pb-5 text-ink/60 text-sm leading-relaxed">FAGARUU lancera d'abord en Afrique de
-                            l'Ouest francophone (Sénégal, Côte d'Ivoire, Mali, Burkina Faso) avant de s'étendre
-                            progressivement à l'ensemble du continent africain. Restez à l'écoute !</p>
+                        <p data-i18n="faq_a5" class="px-6 pb-5 text-ink/60 text-sm leading-relaxed">FAGARUU lancera d'abord en Afrique de l'Ouest francophone (Sénégal, Côte d'Ivoire, Mali, Burkina Faso) avant de s'étendre progressivement à l'ensemble du continent africain. Restez à l'écoute !</p>
                     </div>
                 </div>
             </div>
@@ -1454,43 +1427,43 @@
                 </div>
 
                 <div class="relative z-10">
-                    <p class="text-white/70 text-xs font-semibold tracking-widest uppercase mb-4">Nous contacter</p>
-                    <h2 class="font-display text-4xl sm:text-5xl text-white mb-5 leading-tight">
+                    <p data-i18n="contact_tagline" class="text-white/70 text-xs font-semibold tracking-widest uppercase mb-4">Nous contacter</p>
+                    <h2 data-i18n="contact_title" class="font-display text-4xl sm:text-5xl text-white mb-5 leading-tight">
                         Contactez l'équipe<br />
                         <em class="not-italic">FAGARUU</em>
                     </h2>
-                    <p class="text-white/80 text-lg max-w-xl mx-auto mb-8">
+                    <p data-i18n="contact_subtitle" class="text-white/80 text-lg max-w-xl mx-auto mb-8">
                         Une question ? Une suggestion ? Écrivez-nous, nous répondrons rapidement.
                     </p>
                     <div class="max-w-md mx-auto text-left space-y-4">
                         <div class="grid grid-cols-2 gap-3">
                             <div>
-                                <label class="block text-xs font-semibold text-white/80 mb-1.5">Nom *</label>
+                                <label data-i18n="contact_lname" class="block text-xs font-semibold text-white/80 mb-1.5">Nom *</label>
                                 <input id="c-nom" type="text" placeholder="Diallo"
                                     class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-400/20 transition-all" />
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold text-white/80 mb-1.5">Prénom *</label>
+                                <label data-i18n="contact_fname" class="block text-xs font-semibold text-white/80 mb-1.5">Prénom *</label>
                                 <input id="c-prenom" type="text" placeholder="Amina"
                                     class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-400/20 transition-all" />
                             </div>
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold text-white/80 mb-1.5">Téléphone *</label>
+                            <label data-i18n="contact_phone" class="block text-xs font-semibold text-white/80 mb-1.5">Téléphone *</label>
                             <input id="c-tel" type="tel" placeholder="+221 XX XXX XX XX"
                                 class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-400/20 transition-all" />
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold text-white/80 mb-1.5">Message *</label>
-                            <textarea id="c-message" rows="3" placeholder="Votre message..."
+                            <label data-i18n="contact_msg" class="block text-xs font-semibold text-white/80 mb-1.5">Message *</label>
+                            <textarea id="c-message" rows="3" placeholder="Votre message..." data-i18n-placeholder="contact_msg_ph"
                                 class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-400/20 transition-all resize-none"></textarea>
                         </div>
-                        <p id="c-error" class="hidden text-red-300 text-xs">Veuillez remplir tous les champs requis.</p>
-                        <button onclick="submitContact()"
+                        <p id="c-error" data-i18n="contact_error" class="hidden text-red-300 text-xs">Veuillez remplir tous les champs requis.</p>
+                        <button onclick="submitContact()" data-i18n="contact_btn"
                             class="w-full bg-white text-brand-600 font-bold py-3.5 rounded-xl transition-all duration-200 shadow-md shadow-brand-500/20 hover:shadow-brand-500/30 hover:bg-brand-50">
                             Envoyer le message
                         </button>
-                        <p id="c-success" class="hidden text-center text-white text-sm font-medium">✓ Message envoyé avec succès !</p>
+                        <p id="c-success" data-i18n="contact_success" class="hidden text-center text-white text-sm font-medium">✓ Message envoyé avec succès !</p>
                     </div>
                 </div>
             </div>
@@ -1515,9 +1488,7 @@
                         </div>
                         <span class="font-bold text-lg">FAGARUU</span>
                     </div>
-                    <p class="text-white/50 text-sm leading-relaxed mb-5">FAGARUU est une plateforme innovante dédiée à
-                        la santé reproductive, à l'éducation et à l'accompagnement des jeunes et des adultes en Afrique.
-                    </p>
+                    <p data-i18n="footer_about" class="text-white/50 text-sm leading-relaxed mb-5">FAGARUU est une plateforme innovante dédiée à la santé reproductive, à l'éducation et à l'accompagnement des jeunes et des adultes en Afrique.</p>
                     <!-- Social -->
                     <div class="flex gap-3">
                         <a href="#"
@@ -1555,27 +1526,26 @@
 
                 <!-- Product -->
                 <div>
-                    <h4 class="font-bold text-sm mb-4 text-white/90">Produit</h4>
+                    <h4 data-i18n="footer_col_product" class="font-bold text-sm mb-4 text-white/90">Produit</h4>
                     <ul class="space-y-3">
-                        <li><a href="#fonctionnalites"
+                        <li><a href="#fonctionnalites" data-i18n="footer_nav_feat"
                                 class="text-white/50 hover:text-brand-400 text-sm transition-colors">Fonctionnalités</a>
                         </li>
-                        <li><a href="#ressources"
+                        <li><a href="#ressources" data-i18n="footer_nav_res"
                                 class="text-white/50 hover:text-brand-400 text-sm transition-colors">Ressources</a></li>
-                        <li><a href="#faq" class="text-white/50 hover:text-brand-400 text-sm transition-colors">FAQ</a>
+                        <li><a href="#faq" data-i18n="footer_nav_faq" class="text-white/50 hover:text-brand-400 text-sm transition-colors">FAQ</a>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Entreprise -->
                 <div>
-                    <h4 class="font-bold text-sm mb-4 text-white/90">Entreprise</h4>
+                    <h4 data-i18n="footer_col_company" class="font-bold text-sm mb-4 text-white/90">Entreprise</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-white/50 hover:text-brand-400 text-sm transition-colors">À
-                                propos</a></li>
-                        <li><a href="#contact"
+                        <li><a href="#" data-i18n="footer_nav_about" class="text-white/50 hover:text-brand-400 text-sm transition-colors">À propos</a></li>
+                        <li><a href="#contact" data-i18n="footer_nav_contact"
                                 class="text-white/50 hover:text-brand-400 text-sm transition-colors">Contact</a></li>
-                        <li><a href="#"
+                        <li><a href="#" data-i18n="footer_nav_partners"
                                 class="text-white/50 hover:text-brand-400 text-sm transition-colors">Partenaires</a>
                         </li>
                     </ul>
@@ -1583,20 +1553,18 @@
 
                 <!-- Légal -->
                 <div>
-                    <h4 class="font-bold text-sm mb-4 text-white/90">Légal</h4>
+                    <h4 data-i18n="footer_col_legal" class="font-bold text-sm mb-4 text-white/90">Légal</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-white/50 hover:text-brand-400 text-sm transition-colors">Conditions
-                                d'utilisation</a></li>
-                        <li><a href="#" class="text-white/50 hover:text-brand-400 text-sm transition-colors">Politique
-                                de confidentialité</a></li>
+                        <li><a href="#" data-i18n="footer_nav_terms" class="text-white/50 hover:text-brand-400 text-sm transition-colors">Conditions d'utilisation</a></li>
+                        <li><a href="#" data-i18n="footer_nav_privacy" class="text-white/50 hover:text-brand-400 text-sm transition-colors">Politique de confidentialité</a></li>
                     </ul>
                 </div>
             </div>
 
             <!-- Divider -->
             <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-white/30 text-sm">© 2026 FAGARUU. Tous droits réservés.</p>
-                <p class="text-white/30 text-sm">Fait avec ❤️ pour l'Afrique</p>
+                <p data-i18n="footer_rights" class="text-white/30 text-sm">© 2026 FAGARUU. Tous droits réservés.</p>
+                <p data-i18n="footer_made_for" class="text-white/30 text-sm">Fait avec ❤️ pour l'Afrique</p>
             </div>
         </div>
     </footer>
@@ -1666,46 +1634,464 @@
         }
 
         
+  // --- Internationalization (i18n) ---
+  const translations = {
+    fr: {
+      meta_title: "FAGARUU — Votre santé reproductive, à portée de main",
+      meta_desc: "FAGARUU accompagne les jeunes et les adultes en Afrique avec des informations fiables, des conseils personnalisés et un accès simplifié aux services de santé reproductive.",
+      nav_home: "Accueil",
+      nav_features: "Fonctionnalités",
+      nav_how: "Comment ça marche",
+      nav_resources: "Ressources",
+      nav_faq: "FAQ",
+      nav_contact: "Contact",
+      mobile_lang_label: "Langue :",
+      
+      // Hero
+      hero_badge: "Disponible très prochainement en Afrique",
+      hero_title_1: "Votre santé<br />\n                            <em class=\"not-italic gradient-text\">reproductive,</em>",
+      hero_title_2: "à portée de",
+      hero_title_3: "main.",
+      hero_subtitle: "FAGARUU vous accompagne avec des informations fiables, des conseils personnalisés, un suivi intelligent et un accès simplifié aux services de santé reproductive.",
+      hero_cta_contact: "Nous contacter",
+      hero_cta_features: "Voir les fonctionnalités",
+      hero_social_proof: "futurs utilisateurs inscrits",
+
+      // Mockup
+      mockup_greeting: "Bonjour, Amina 👋",
+      mockup_dashboard_title: "Votre tableau de bord",
+      mockup_stat_rdv_title: "Prochain RDV",
+      mockup_stat_rdv_val: "15 juin",
+      mockup_stat_cycle_title: "Cycle J.",
+      mockup_stat_cycle_val: "Jour 14",
+      mockup_stat_reminders_title: "Rappels",
+      mockup_stat_reminders_val: "3 actifs",
+      mockup_cal_title: "CALENDRIER DE CYCLE",
+      mockup_tip_title: "CONSEIL DU JOUR",
+      mockup_tip_text: "Rester hydratée améliore votre bien-être general lors de cette phase de votre cycle.",
+      mockup_assistant_title: "Assistant FAGARUU",
+      mockup_assistant_text: "Comment puis-je vous aider aujourd'hui ?",
+      mockup_nav_home: "Accueil",
+      mockup_nav_track: "Suivi",
+      mockup_nav_assist: "Assistant",
+      mockup_nav_rdv: "RDV",
+      notif_rdv_title: "Rappel RDV",
+      notif_rdv_desc: "Dr. Koné — 15 juin",
+      badge_secure_title: "Données sécurisées",
+      badge_secure_desc: "Chiffrement total",
+
+      // Partners
+      partners_title: "Ils nous font confiance",
+      partner_ministry: "Ministère de la Santé",
+      partner_ngo: "ONG Santé Jeunes",
+      partner_centers: "Centres de Santé Partenaires",
+      partner_univ: "Universités",
+      partner_youth: "Associations de Jeunesse",
+
+      // Features
+      feat_tagline: "Plateforme complète",
+      feat_title: "Tout ce dont vous avez besoin<br />\n                    <em class=\"not-italic gradient-text\">pour votre santé reproductive</em>",
+      feat_subtitle: "Six outils essentiels, pensés pour l'Afrique, conçus pour vous.",
+      feat_1_title: "Suivi personnalisé",
+      feat_1_desc: "Suivez votre cycle, vos rendez-vous médicaux et vos objectifs santé depuis une seule interface claire.",
+      feat_2_title: "Conseils fiables",
+      feat_2_desc: "Accédez à des contenus validés par des professionnels de santé, adaptés au contexte africain.",
+      feat_3_title: "Assistant intelligent",
+      feat_3_desc: "Posez vos questions et obtenez des réponses rapides, précises et confidentielles 24h/24.",
+      feat_4_title: "Prise de rendez-vous",
+      feat_4_desc: "Trouvez et contactez facilement des professionnels de santé près de chez vous en quelques clics.",
+      feat_5_title: "Alertes et rappels",
+      feat_5_desc: "Ne manquez plus aucun rendez-vous ni traitement grâce à des notifications intelligentes et personnalisables.",
+      feat_6_title: "Confidentialité totale",
+      feat_6_desc: "Vos données de santé restent privées, protégées par un chiffrement de bout en bout.",
+      feat_btn_more: "En savoir plus",
+
+      // How it works
+      how_tagline: "Simple et rapide",
+      how_title: "Commencer avec FAGARUU<br />\n                    <em class=\"not-italic gradient-text\">en 3 étapes</em>",
+      how_1_title: "Créer un compte",
+      how_1_desc: "Inscrivez-vous gratuitement en moins de 2 minutes. Aucune carte bancaire requise.",
+      how_2_title: "Compléter votre profil santé",
+      how_2_desc: "Renseignez vos informations de santé pour un accompagnement vraiment personnalisé.",
+      how_3_title: "Recevoir votre accompagnement",
+      how_3_desc: "Profitez de conseils, rappels et ressources adaptés à votre profil et vos besoins.",
+      how_cta: "Nous contacter",
+
+      // Why Choose
+      why_box_title: "La confiance avant tout",
+      why_box_desc: "FAGARUU est développé en collaboration avec des experts médicaux pour garantir des informations vérifiées, objectives et bienveillantes. Votre santé mérite ce qu'il y a de plus sûr.",
+      why_tagline: "Notre différence",
+      why_title: "Pourquoi choisir<br />\n                            <em class=\"not-italic gradient-text\">FAGARUU ?</em>",
+      why_1_title: "Éducation fiable",
+      why_1_desc: "Des informations basées sur des sources médicales reconnues et vérifiées par des professionnels de santé.",
+      why_2_title: "Confidentialité garantie",
+      why_2_desc: "Vos données de santé sont protégées par un chiffrement de bout en bout. Personne d'autre ne peut y accéder.",
+      why_3_title: "Accessibilité",
+      why_3_desc: "Disponible partout, à tout moment, même avec une connexion limitée. Conçu pour l'Afrique.",
+      why_4_title: "Accompagnement personnalisé",
+      why_4_desc: "Des recommandations adaptées à chaque utilisateur selon son profil, son âge et ses besoins spécifiques.",
+
+      // Testimonials
+      testi_tagline: "Communauté",
+      testi_title: "Ce que disent nos utilisateurs",
+      testi_subtitle: "L'application arrive bientôt. Partagez déjà vos attentes et votre enthousiasme !",
+      testi_quote_1: "\"Une application comme FAGARUU était vraiment nécessaire en Afrique. J'attends avec impatience de pouvoir suivre mon cycle et accéder à des conseils fiables.\"",
+      testi_city_1: "Dakar, Sénégal",
+      testi_quote_2: "\"La confidentialité est primordiale sur ce sujet. Savoir que mes données seront sécurisées me rassure vraiment. Je suis déjà inscrit pour la bêta.\"",
+      testi_city_2: "Abidjan, Côte d'Ivoire",
+      testi_quote_3: "\"FAGARUU va révolutionner l'accès aux soins reproductifs en Afrique. Une initiative bienvenue qui va sauver beaucoup de vies.\"",
+      testi_city_3: "Bamako, Mali",
+      testi_form_title: "Partagez votre enthousiasme",
+      testi_form_subtitle: "Votre témoignage sera affiché sur cette page.",
+      testi_form_fname: "Prénom",
+      testi_form_fname_ph: "Votre prénom",
+      testi_form_city: "Ville / Pays",
+      testi_form_city_ph: "Ex: Dakar, Sénégal",
+      testi_form_msg: "Votre message",
+      testi_form_msg_ph: "Partagez vos attentes sur FAGARUU…",
+      testi_form_rating: "Note",
+      testi_form_submit: "Publier mon témoignage",
+      testi_form_success: "✓ Merci ! Votre témoignage a été ajouté.",
+
+      // FAQ
+      faq_tagline: "Questions fréquentes",
+      faq_title: "Tout ce que vous voulez savoir",
+      faq_q1: "Qu'est-ce que FAGARUU ?",
+      faq_a1: "FAGARUU est une plateforme numérique de santé reproductive destinée à informer, accompagner et orienter les jeunes et les adultes en Afrique. Elle offre un suivi personnalisé, des conseils médicaux validés et un accès simplifié aux professionnels de santé.",
+      faq_q2: "Mes données sont-elles sécurisées ?",
+      faq_a2: "Oui, absolument. Toutes les données personnelles et médicales sont chiffrées de bout en bout et traitées dans le strict respect de la confidentialité. Personne, y compris nos équipes, ne peut accéder à vos informations de santé sans votre consentement explicite.",
+      faq_q3: "L'application est-elle gratuite ?",
+      faq_a3: "La première version de FAGARUU sera entièrement gratuite avec toutes les fonctionnalités essentielles incluses : suivi de cycle, conseils santé, assistant intelligent et alertes. Des options premium pourront être proposées ultérieurement.",
+      faq_q4: "Comment contacter un professionnel de santé ?",
+      faq_a4: "Depuis l'application, accédez au module de prise de rendez-vous pour trouver et contacter des professionnels de santé référencés près de chez vous. Vous pouvez filtrer par spécialité, disponibilité et localisation.",
+      faq_q5: "Dans quels pays FAGARUU sera-t-il disponible ?",
+      faq_a5: "FAGARUU lancera d'abord en Afrique de l'Ouest francophone (Sénégal, Côte d'Ivoire, Mali, Burkina Faso) avant de s'étendre progressivement à l'ensemble du continent africain. Restez à l'écoute !",
+
+      // Contact
+      contact_tagline: "Nous contacter",
+      contact_title: "Contactez l'équipe<br />\n                        <em class=\"not-italic\">FAGARUU</em>",
+      contact_subtitle: "Une question ? Une suggestion ? Écrivez-nous, nous répondrons rapidement.",
+      contact_lname: "Nom *",
+      contact_fname: "Prénom *",
+      contact_phone: "Téléphone *",
+      contact_msg: "Message *",
+      contact_msg_ph: "Votre message...",
+      contact_error: "Veuillez remplir tous les champs requis.",
+      contact_btn: "Envoyer le message",
+      contact_success: "✓ Message envoyé avec succès !",
+
+      // Footer
+      footer_about: "FAGARUU est une plateforme innovante dédiée à la santé reproductive, à l'éducation et à l'accompagnement des jeunes et des adultes en Afrique.",
+      footer_col_product: "Produit",
+      footer_nav_feat: "Fonctionnalités",
+      footer_nav_res: "Ressources",
+      footer_nav_faq: "FAQ",
+      footer_col_company: "Entreprise",
+      footer_nav_about: "À propos",
+      footer_nav_contact: "Contact",
+      footer_nav_partners: "Partenaires",
+      footer_col_legal: "Légal",
+      footer_nav_terms: "Conditions d'utilisation",
+      footer_nav_privacy: "Politique de confidentialité",
+      footer_rights: "© 2026 FAGARUU. Tous droits réservés.",
+      footer_made_for: "Fait avec ❤️ pour l'Afrique"
+    },
+    en: {
+      meta_title: "FAGARUU — Your reproductive health, within reach",
+      meta_desc: "FAGARUU supports youth and adults in Africa with reliable information, personalized guidance, and simplified access to reproductive health services.",
+      nav_home: "Home",
+      nav_features: "Features",
+      nav_how: "How It Works",
+      nav_resources: "Resources",
+      nav_faq: "FAQ",
+      nav_contact: "Contact",
+      mobile_lang_label: "Language:",
+      
+      // Hero
+      hero_badge: "Coming very soon to Africa",
+      hero_title_1: "Your reproductive<br />\n                            <em class=\"not-italic gradient-text\">health,</em>",
+      hero_title_2: "within",
+      hero_title_3: "reach.",
+      hero_subtitle: "FAGARUU supports you with reliable information, personalized guidance, smart tracking, and simplified access to reproductive health services.",
+      hero_cta_contact: "Contact Us",
+      hero_cta_features: "Explore Features",
+      hero_social_proof: "early users signed up",
+
+      // Mockup
+      mockup_greeting: "Hello, Amina 👋",
+      mockup_dashboard_title: "Your Dashboard",
+      mockup_stat_rdv_title: "Next Appt",
+      mockup_stat_rdv_val: "June 15",
+      mockup_stat_cycle_title: "Cycle Day",
+      mockup_stat_cycle_val: "Day 14",
+      mockup_stat_reminders_title: "Reminders",
+      mockup_stat_reminders_val: "3 active",
+      mockup_cal_title: "CYCLE CALENDAR",
+      mockup_tip_title: "DAILY TIP",
+      mockup_tip_text: "Staying hydrated improves your overall well-being during this phase of your cycle.",
+      mockup_assistant_title: "FAGARUU Assistant",
+      mockup_assistant_text: "How can I help you today?",
+      mockup_nav_home: "Home",
+      mockup_nav_track: "Tracking",
+      mockup_nav_assist: "Assistant",
+      mockup_nav_rdv: "Appointments",
+      notif_rdv_title: "Appt Reminder",
+      notif_rdv_desc: "Dr. Koné — June 15",
+      badge_secure_title: "Secure Data",
+      badge_secure_desc: "Total Encryption",
+
+      // Partners
+      partners_title: "They trust us",
+      partner_ministry: "Ministry of Health",
+      partner_ngo: "Youth Health NGO",
+      partner_centers: "Partner Health Centers",
+      partner_univ: "Universities",
+      partner_youth: "Youth Associations",
+
+      // Features
+      feat_tagline: "Complete Platform",
+      feat_title: "Everything you need<br />\n                    <em class=\"not-italic gradient-text\">for your reproductive health</em>",
+      feat_subtitle: "Six essential tools, designed for Africa, tailored for you.",
+      feat_1_title: "Personalized Tracking",
+      feat_1_desc: "Track your cycle, medical appointments, and health goals from a single, clear interface.",
+      feat_2_title: "Reliable Advice",
+      feat_2_desc: "Access verified content created by medical professionals and adapted to the African context.",
+      feat_3_title: "Smart Assistant",
+      feat_3_desc: "Ask questions and receive fast, accurate, and confidential answers 24/7.",
+      feat_4_title: "Appointment Booking",
+      feat_4_desc: "Easily find and contact verified healthcare providers near you in just a few clicks.",
+      feat_5_title: "Alerts & Reminders",
+      feat_5_desc: "Never miss an appointment or medication thanks to smart, customizable notifications.",
+      feat_6_title: "Total Confidentiality",
+      feat_6_desc: "Your health data remains strictly private, secured with robust end-to-end encryption.",
+      feat_btn_more: "Learn more",
+
+      // How it works
+      how_tagline: "Simple & Fast",
+      how_title: "Get started with FAGARUU<br />\n                    <em class=\"not-italic gradient-text\">in 3 steps</em>",
+      how_1_title: "Create an account",
+      how_1_desc: "Sign up for free in less than 2 minutes. No credit card required.",
+      how_2_title: "Complete your health profile",
+      how_2_desc: "Provide your basic health information for truly personalized guidance.",
+      how_3_title: "Receive tailored care",
+      how_3_desc: "Enjoy tips, reminders, and resources customized to your profile and needs.",
+      how_cta: "Contact Us",
+
+      // Why Choose
+      why_box_title: "Trust above all",
+      why_box_desc: "FAGARUU is built in close partnership with medical experts to guarantee verified, objective, and compassionate information. Your health deserves the highest standards of safety.",
+      why_tagline: "Our Difference",
+      why_title: "Why choose<br />\n                            <em class=\"not-italic gradient-text\">FAGARUU ?</em>",
+      why_1_title: "Reliable Education",
+      why_1_desc: "Information grounded in recognized medical literature and verified by healthcare professionals.",
+      why_2_title: "Guaranteed Privacy",
+      why_2_desc: "Your health data is protected by end-to-end encryption. No third party can ever access it.",
+      why_3_title: "Accessibility",
+      why_3_desc: "Available anywhere, anytime, even with low connectivity. Built intentionally for Africa.",
+      why_4_title: "Personalized Care",
+      why_4_desc: "Recommendations tailored to each user according to their age, profile, and specific health goals.",
+
+      // Testimonials
+      testi_tagline: "Community",
+      testi_title: "What our users say",
+      testi_subtitle: "The app is launching soon. Share your thoughts and excitement with us today!",
+      testi_quote_1: "\"An app like FAGARUU was genuinely needed in Africa. I eagerly look forward to tracking my cycle and accessing reliable health tips.\"",
+      testi_city_1: "Dakar, Senegal",
+      testi_quote_2: "\"Confidentiality is crucial when it comes to reproductive health. Knowing my data is protected gives me total peace of mind. I'm already on the waitlist!\"",
+      testi_city_2: "Abidjan, Ivory Coast",
+      testi_quote_3: "\"FAGARUU will revolutionize access to reproductive health in Africa. A timely, essential initiative that will save lives.\"",
+      testi_city_3: "Bamako, Mali",
+      testi_form_title: "Share your enthusiasm",
+      testi_form_subtitle: "Your testimonial will be featured directly on this page.",
+      testi_form_fname: "First Name",
+      testi_form_fname_ph: "Your first name",
+      testi_form_city: "City / Country",
+      testi_form_city_ph: "E.g. Dakar, Senegal",
+      testi_form_msg: "Your message",
+      testi_form_msg_ph: "Share your expectations about FAGARUU…",
+      testi_form_rating: "Rating",
+      testi_form_submit: "Post my testimonial",
+      testi_form_success: "✓ Thank you! Your testimonial has been posted.",
+
+      // FAQ
+      faq_tagline: "Frequently Asked Questions",
+      faq_title: "Everything you need to know",
+      faq_q1: "What is FAGARUU?",
+      faq_a1: "FAGARUU is a digital reproductive health platform dedicated to informing, supporting, and guiding youth and adults across Africa. It provides personalized cycle tracking, validated medical guidance, and simplified access to healthcare specialists.",
+      faq_q2: "Is my personal data secure?",
+      faq_a2: "Yes, absolutely. All medical and personal records are encrypted end-to-end and handled with strict privacy protocols. No one—including our team—can access your sensitive data without your explicit permission.",
+      faq_q3: "Is the application free to use?",
+      faq_a3: "The initial launch of FAGARUU will be completely free, including all essential tools: cycle tracking, daily advice, intelligent assistant, and reminders. Optional premium features may be offered in the future.",
+      faq_q4: "How do I contact a healthcare professional?",
+      faq_a4: "Within the application, visit the appointment booking section to find and contact verified healthcare providers near you. You can easily filter by specialty, location, and immediate availability.",
+      faq_q5: "In which countries will FAGARUU be available?",
+      faq_a5: "FAGARUU will launch first in West Africa (Senegal, Ivory Coast, Mali, Burkina Faso) before expanding progressively across the African continent. Stay tuned!",
+
+      // Contact
+      contact_tagline: "Contact Us",
+      contact_title: "Contact the<br />\n                        <em class=\"not-italic\">FAGARUU</em> Team",
+      contact_subtitle: "Have a question or suggestion? Reach out to us and we will respond promptly.",
+      contact_lname: "Last Name *",
+      contact_fname: "First Name *",
+      contact_phone: "Phone *",
+      contact_msg: "Message *",
+      contact_msg_ph: "Your message...",
+      contact_error: "Please fill in all required fields.",
+      contact_btn: "Send Message",
+      contact_success: "✓ Message sent successfully!",
+
+      // Footer
+      footer_about: "FAGARUU is an innovative platform dedicated to reproductive health, education, and holistic support for youth and adults across Africa.",
+      footer_col_product: "Product",
+      footer_nav_feat: "Features",
+      footer_nav_res: "Resources",
+      footer_nav_faq: "FAQ",
+      footer_col_company: "Company",
+      footer_nav_about: "About",
+      footer_nav_contact: "Contact",
+      footer_nav_partners: "Partners",
+      footer_col_legal: "Legal",
+      footer_nav_terms: "Terms of Service",
+      footer_nav_privacy: "Privacy Policy",
+      footer_rights: "© 2026 FAGARUU. All rights reserved.",
+      footer_made_for: "Made with ❤️ for Africa"
+    }
+  };
+
+  let currentLang = 'fr';
+
+  function setLanguage(lang) {
+    if (lang !== 'fr' && lang !== 'en') lang = 'fr';
+    currentLang = lang;
+    try {
+      localStorage.setItem('fagaruu_lang', lang);
+    } catch(e) {}
+    
+    document.documentElement.setAttribute('lang', lang);
+
+    const activeClass = 'px-2.5 py-1 rounded-full transition-all duration-200 bg-brand-500 text-white shadow-sm font-semibold text-xs';
+    const inactiveClass = 'px-2.5 py-1 rounded-full transition-all duration-200 text-ink/60 hover:text-brand-500 font-semibold text-xs';
+    const activeClassMob = 'px-3 py-1 rounded-full transition-all duration-200 bg-brand-500 text-white shadow-sm font-semibold text-xs';
+    const inactiveClassMob = 'px-3 py-1 rounded-full transition-all duration-200 text-ink/60 hover:text-brand-500 font-semibold text-xs';
+
+    const btnFr = document.getElementById('lang-btn-fr');
+    const btnEn = document.getElementById('lang-btn-en');
+    const mobBtnFr = document.getElementById('mobile-lang-btn-fr');
+    const mobBtnEn = document.getElementById('mobile-lang-btn-en');
+
+    if (btnFr) btnFr.className = lang === 'fr' ? activeClass : inactiveClass;
+    if (btnEn) btnEn.className = lang === 'en' ? activeClass : inactiveClass;
+    if (mobBtnFr) mobBtnFr.className = lang === 'fr' ? activeClassMob : inactiveClassMob;
+    if (mobBtnEn) mobBtnEn.className = lang === 'en' ? activeClassMob : inactiveClassMob;
+
+    const t = translations[lang];
+    if (t.meta_title) document.title = t.meta_title;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc && t.meta_desc) metaDesc.setAttribute('content', t.meta_desc);
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) {
+        if (t[key].includes('<')) {
+          el.innerHTML = t[key];
+        } else {
+          el.textContent = t[key];
+        }
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (t[key] !== undefined) {
+        el.setAttribute('placeholder', t[key]);
+      }
+    });
+  }
+
   // --- Feature Modal ---
   const features = [
     {
-      title: "Suivi personnalisé",
-      desc: "Suivez votre cycle, vos rendez-vous médicaux et vos objectifs santé depuis une seule interface claire.",
+      fr: {
+        title: "Suivi personnalisé",
+        desc: "Suivez votre cycle, vos rendez-vous médicaux et vos objectifs santé depuis une seule interface claire.",
+        details: ["Calendrier menstruel prédictif", "Suivi des symptômes quotidiens", "Historique de santé détaillé"]
+      },
+      en: {
+        title: "Personalized Tracking",
+        desc: "Track your cycle, medical appointments, and health goals from a single clear interface.",
+        details: ["Predictive menstrual calendar", "Daily symptom tracking", "Detailed health history"]
+      },
       icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="3" stroke="#00A86B" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="#00A86B" stroke-width="2" stroke-linecap="round"/><circle cx="8" cy="15" r="1.5" fill="#00A86B"/><circle cx="12" cy="15" r="1.5" fill="#00A86B" opacity="0.5"/><circle cx="16" cy="15" r="1.5" fill="#00A86B" opacity="0.3"/></svg>`,
-      img: "assets/feat_suivi.png",
-      details: ["Calendrier menstruel prédictif", "Suivi des symptômes quotidiens", "Historique de santé détaillé"]
+      img: "assets/feat_suivi.png"
     },
     {
-      title: "Conseils fiables",
-      desc: "Accédez à des contenus validés par des professionnels de santé, adaptés au contexte africain.",
+      fr: {
+        title: "Conseils fiables",
+        desc: "Accédez à des contenus validés par des professionnels de santé, adaptés au contexte africain.",
+        details: ["Articles rédigés par des médecins", "Vidéos éducatives courtes", "Conseils nutritionnels et bien-être"]
+      },
+      en: {
+        title: "Reliable Advice",
+        desc: "Access content validated by healthcare professionals, adapted to the African context.",
+        details: ["Articles written by doctors", "Short educational videos", "Nutrition and wellness tips"]
+      },
       icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 12h6M9 16h4M17 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z" stroke="#00A86B" stroke-width="2" stroke-linecap="round"/><path d="M9 8h6" stroke="#00A86B" stroke-width="2" stroke-linecap="round"/></svg>`,
-      img: "assets/feat_conseil.png",
-      details: ["Articles rédigés par des médecins", "Vidéos éducatives courtes", "Conseils nutritionnels et bien-être"]
+      img: "assets/feat_conseil.png"
     },
     {
-      title: "Assistant intelligent",
-      desc: "Posez vos questions et obtenez des réponses rapides, précises et confidentielles 24h/24.",
+      fr: {
+        title: "Assistant intelligent",
+        desc: "Posez vos questions et obtenez des réponses rapides, précises et confidentielles 24h/24.",
+        details: ["Réponses instantanées 24/7", "Analyse des symptômes", "Orientation vers un spécialiste si nécessaire"]
+      },
+      en: {
+        title: "Smart Assistant",
+        desc: "Ask questions and get fast, accurate, and confidential answers 24/7.",
+        details: ["Instant 24/7 answers", "Symptom analysis", "Referral to specialists when needed"]
+      },
       icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="#00A86B"/></svg>`,
-      img: "assets/feat_assistant.png",
-      details: ["Réponses instantanées 24/7", "Analyse des symptômes", "Orientation vers un spécialiste si nécessaire"]
+      img: "assets/feat_assistant.png"
     },
     {
-      title: "Prise de rendez-vous",
-      desc: "Trouvez et contactez facilement des professionnels de santé près de chez vous en quelques clics.",
+      fr: {
+        title: "Prise de rendez-vous",
+        desc: "Trouvez et contactez facilement des professionnels de santé près de chez vous en quelques clics.",
+        details: ["Géolocalisation des centres de santé", "Téléconsultation vidéo", "Gestion des disponibilités"]
+      },
+      en: {
+        title: "Appointment Booking",
+        desc: "Easily find and contact healthcare providers near you in just a few clicks.",
+        details: ["Health center geolocation", "Video teleconsultation", "Availability management"]
+      },
       icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.9A16 16 0 0 0 15.1 16.1l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02v-.47z" stroke="#00A86B" stroke-width="2" stroke-linecap="round"/></svg>`,
-      img: "assets/feat_rdv.png",
-      details: ["Géolocalisation des centres de santé", "Téléconsultation vidéo", "Gestion des disponibilités"]
+      img: "assets/feat_rdv.png"
     },
     {
-      title: "Alertes et rappels",
-      desc: "Ne manquez plus aucun rendez-vous ni traitement grâce à des notifications intelligentes et personnalisables.",
+      fr: {
+        title: "Alertes et rappels",
+        desc: "Ne manquez plus aucun rendez-vous ni traitement grâce à des notifications intelligentes et personnalisables.",
+        details: ["Rappels de prise de pilule", "Notifications de rendez-vous", "Alertes de renouvellement d'ordonnance"]
+      },
+      en: {
+        title: "Alerts & Reminders",
+        desc: "Never miss an appointment or medication thanks to smart, customizable notifications.",
+        details: ["Pill reminders", "Appointment notifications", "Prescription renewal alerts"]
+      },
       icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="#00A86B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="#00A86B" stroke-width="2" stroke-linecap="round"/></svg>`,
       img: "assets/feat_alertes.png",
       details: ["Rappels de prise de pilule", "Notifications de rendez-vous", "Alertes de renouvellement d'ordonnance"]
     },
     {
-      title: "Confidentialité totale",
-      desc: "Vos données de santé restent privées, protégées par un chiffrement de bout en bout.",
+      fr: {
+        title: "Confidentialité totale",
+        desc: "Vos données de santé restent privées, protégées par un chiffrement de bout en bout.",
+        details: ["Chiffrement de bout en bout", "Accès par Face ID / Empreinte", "Aucune donnée partagée sans consentement"]
+      },
+      en: {
+        title: "Total Confidentiality",
+        desc: "Your health data remains strictly private, protected by end-to-end encryption.",
+        details: ["End-to-end encryption", "Face ID / Fingerprint biometric access", "No data shared without consent"]
+      },
       icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="#00A86B" stroke-width="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#00A86B" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="16" r="1.5" fill="#00A86B"/></svg>`,
       img: "assets/feat_confidentialite.png",
       details: ["Chiffrement de bout en bout", "Accès par Face ID / Empreinte", "Aucune donnée partagée sans consentement"]
@@ -1714,13 +2100,14 @@
 
   function openFeatureModal(index) {
     const feat = features[index];
+    const data = feat[currentLang] || feat.fr;
     document.getElementById('feature-modal-icon').innerHTML = feat.icon;
-    document.getElementById('feature-modal-title').textContent = feat.title;
-    document.getElementById('feature-modal-desc').textContent = feat.desc;
+    document.getElementById('feature-modal-title').textContent = data.title;
+    document.getElementById('feature-modal-desc').textContent = data.desc;
     document.getElementById('feature-modal-img').src = feat.img;
     
     let detailsHtml = '';
-    feat.details.forEach(detail => {
+    data.details.forEach(detail => {
       detailsHtml += `<div class="flex items-center gap-3"><div class="w-6 h-6 rounded-full bg-brand-100 flex items-center justify-center shrink-0"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00A86B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p class="text-ink/80 text-sm font-medium">${detail}</p></div>`;
     });
     document.getElementById('feature-modal-details').innerHTML = detailsHtml;
@@ -1741,6 +2128,14 @@
     card.style.opacity = '0';
     setTimeout(() => modal.classList.add('hidden'), 200);
   }
+
+  // Load language preference on startup
+  try {
+    const saved = localStorage.getItem('fagaruu_lang');
+    if (saved === 'en') {
+      setLanguage('en');
+    }
+  } catch(e) {}
 
   // ——— Scroll reveal ———
         const revealObserver = new IntersectionObserver((entries) => {
